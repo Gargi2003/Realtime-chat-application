@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="form-wrapper text-center">
+        <div class="text-center">
+            <h2>Login</h2>
+            <form [formGroup]="loginForm"  (submit)="submit()" >
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter email id" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
+                </div>
+                <button class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+            </form>
+            <small><a routerLink="/signup">Need an account?</a></small>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+@import '../../../styles/variables.scss';
+
+.container {
+    height: 100vh;
+}
+h2{
+    margin-bottom:1em;
+}
+.form-wrapper{
+    margin-bottom: 10%;
+    min-width: 40%;
+    padding: 1em 2em;
+    border: 2px solid $light-grey;
+}
+
+.form-group{
+    margin-top: 1em;
+}
+#firstName{
+    margin-right: 0.5em;
+}
+#lastName{
+    margin-left: 0.3em;
+}
