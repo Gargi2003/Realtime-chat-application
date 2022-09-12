@@ -1,0 +1,19 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { Message } from 'src/app/classes/message';
+
+@Component({
+  selector: 'app-chat-message',
+  templateUrl: './chat-message.component.html',
+  styleUrls: ['./chat-message.component.scss']
+})
+export class ChatMessageComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  @Input()
+  message!: Message; 
+
+}

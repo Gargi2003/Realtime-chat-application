@@ -3,15 +3,21 @@
 
 body{
     color: $secondary;
-    overflow-y: hidden;
 }
-// .container{
-//     height: calc(100vh - 80px) !important;
-// }
-// .navbar{
-//     height: 80px;
-// }
+.container{
+    height: calc(100vh - 50px) !important;
+}
+.navbar{
+    height: 50px;
+}
 button{
     width: 100%;
-    margin-top:1em ;
+
+    &.btn{
+        border-radius: 0;
+
+        &:focus{
+            box-shadow: none;
+        }
+    }
 }

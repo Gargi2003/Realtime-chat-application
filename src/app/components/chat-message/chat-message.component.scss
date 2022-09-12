@@ -1,0 +1,28 @@
+@import '../../../styles/variables.scss';
+
+.chat-message{
+    padding: 1.5em;
+    .image-wrapper{
+        margin-right:1em;
+        height: 100px;
+        width: 100px;
+        // object-fit: cover;
+    }
+    .name{
+        text-decoration: underline;
+        font-weight: 600;
+    }
+    .timestamp{
+        color: darken( $light-grey, 15%);
+        margin-bottom: 1.5em;
+    }
+    .message{
+        font-size: 1.2em;
+    }
+}
+.image-wrapper{
+    img{
+        width: 50px;
+        height: 50px;
+    }
+}

@@ -1,0 +1,11 @@
+@import '../styles/variables.scss';
+
+.alert-wrapper{
+    position:relative;
+
+    alert{
+        position: absolute;
+        height: 50px;
+        width: 100%;
+    }
+}

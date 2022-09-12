@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Alert } from './classes/alert';
+import { AlertService } from './services/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'chat';
+  constructor(private service:AlertService){}
+
+  public alerts:Array<Alert>=[];
+
+  ngOnInit(){
+    this.service.alerts.subscribe(response=>{
+      this.alerts.push(response);
+    })
+  }
 }

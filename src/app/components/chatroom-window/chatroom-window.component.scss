@@ -1,0 +1,8 @@
+.message-wrapper{
+    overflow-y: scroll;
+}
+::-webkit-scrollbar{ 
+    scrollbar-width: thin;
+    width: 50px;
+    border-radius: 40px;
+ }
