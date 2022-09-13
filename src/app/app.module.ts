@@ -16,6 +16,8 @@ import{ChatroomTitleBarComponent} from './components/chatroom-title-bar/chatroom
 import{ChatroomWindowComponent} from './components/chatroom-window/chatroom-window.component'
 import { FormsModule } from '@angular/forms';
 import { AlertService } from './services/alert.service';
+import { NgxLoadingModule } from "ngx-loading";
+import { AuthGuard } from './guards/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +37,10 @@ import { AlertService } from './services/alert.service';
     TooltipModule.forRoot(),
     AlertModule.forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxLoadingModule
   ],
-  providers: [AlertService],
+  providers: [AlertService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

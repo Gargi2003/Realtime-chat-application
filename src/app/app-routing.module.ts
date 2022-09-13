@@ -4,12 +4,13 @@ import { ChatComponent } from './components/chat/chat.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '',pathMatch: 'full' , redirectTo: '/login'},
   {path:'login', component: LoginComponent},
   {path:'signup', component: SignupComponent},
-  {path:'chat', component: ChatComponent},
+  {path:'chat', component: ChatComponent, canActivate:[AuthGuard]},
   {path:'navbar', component: NavbarComponent},
   {path:'**', redirectTo: '/login'}
 ];
