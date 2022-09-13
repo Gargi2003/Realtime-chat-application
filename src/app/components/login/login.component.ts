@@ -47,18 +47,23 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.auth.login(email, password).subscribe(success => {
           if (success) {
             this.router.navigateByUrl(this.returnUrl);
+          }else{
+            this.displayFailedLogIn();
           }
           this.loadingService.isloading.next(false);
 
         })
       );
     } else {
-      const failedLogin = new Alert('Either username or password is invalid', AlertType.Danger);
       this.loadingService.isloading.next(false);
-      this.alertService.alerts.next(failedLogin);
-
+      this.displayFailedLogIn();
     }
 
+  }
+
+  public displayFailedLogIn():void{
+    const failedLogin = new Alert('Either username or password is invalid', AlertType.Danger);
+    this.alertService.alerts.next(failedLogin);
   }
 
 }

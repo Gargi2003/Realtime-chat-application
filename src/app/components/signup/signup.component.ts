@@ -2,6 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, TitleStrategy } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Alert } from 'src/app/classes/alert';
+import { AlertType } from 'src/app/enums/alert-type';
+import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
@@ -15,7 +18,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   public signupForm!: FormGroup;
   private subscription: Subscription[] = [];
   private returnUrl: string = '';
-  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private loadingService: LoadingService) {
+  constructor(private fb: FormBuilder,private alertService: AlertService, private router: Router, private auth: AuthService, private loadingService: LoadingService) {
     this.createForm();
   }
   ngOnDestroy(): void {
@@ -34,18 +37,25 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   public submit(): void {
-    const { email, password, firstName, lastName } = this.signupForm.value;
-    console.log(`email: ${email} password: ${password} firstname: ${firstName} lastname: ${lastName}`);
+    if (this.signupForm.valid) {
+      const { email, password, firstName, lastName } = this.signupForm.value;
+      // console.log(`email: ${email} password: ${password} firstname: ${firstName} lastname: ${lastName}`);
 
-    this.subscription.push(
-      this.auth.signUp(firstName, lastName, email, password).subscribe(success => {
-        if (success) {
-          this.router.navigate(['/chat']);
-        }
-        this.loadingService.isloading.next(false);
-
-      })
-    )
+      this.subscription.push(
+        this.auth.signUp(firstName, lastName, email, password).subscribe(success => {
+          if (success) {
+            this.router.navigate(['/chat']);
+          } else {
+            const failedSignUpAlert = new Alert('There was a problem signing you up. Please try again.',AlertType.Danger)
+            this.alertService.alerts.next(failedSignUpAlert);
+          }
+          this.loadingService.isloading.next(false);
+        })
+      )
+    }else{
+      const failedSignUpAlert = new Alert('There was a problem signing you up. Please try again.',AlertType.Danger);
+      this.alertService.alerts.next(failedSignUpAlert);
+    }
   }
 
 }
