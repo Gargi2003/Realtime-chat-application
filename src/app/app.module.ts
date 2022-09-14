@@ -18,17 +18,15 @@ import { FormsModule } from '@angular/forms';
 import { AlertService } from './services/alert.service';
 import { NgxLoadingModule } from "ngx-loading";
 import { AuthGuard } from './guards/auth.guard';
-// import { AngularFireModule } from '@angular/fire/compat';
-// import{Auth} from '@angular/fire/auth';
-// import{StorageModule} from '@angular/fire/storage';
-// import{FirestoreModule} from '@angular/fire/firestore';
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { config } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ChatroomService } from './services/chatroom.service';
+import { LoadingService } from './services/loading.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -54,9 +52,9 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ],
-  providers: [AlertService,AuthGuard],
+  providers: [AlertService,AuthGuard,ChatroomService,LoadingService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

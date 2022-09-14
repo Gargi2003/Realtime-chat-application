@@ -10,8 +10,10 @@ import { LoadingService } from './services/loading.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  constructor(private service: AlertService, private loadingService: LoadingService) { }
+  constructor(private service: AlertService,
+    private loadingService: LoadingService) { }
 
+  dismissible: boolean = true;
   public alerts: Array<Alert> = [];
   public loading: boolean = false;
   private subscription: Subscription[] = [];
@@ -25,6 +27,11 @@ export class AppComponent implements OnInit, OnDestroy {
     }));
   }
   ngOnDestroy() {
-    this.subscription.forEach(sub=>sub.unsubscribe());
+    this.subscription.forEach(sub => sub.unsubscribe());
   }
+
+  log(alert:any){
+    console.log('alert message closed');
+ }
+
 }

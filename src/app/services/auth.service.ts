@@ -45,18 +45,16 @@ export class AuthService {
       return true;
     }).catch(err => false)
     );
-
-    return of(true);
   }
   public login(email: string, password: string): Observable<boolean> {
-    fromPromise(this.afAuth.signInWithEmailAndPassword(email, password).then(user => true).catch(err => false ))
-    return of(true);
+    return fromPromise(this.afAuth.signInWithEmailAndPassword(email, password).then(user => true).catch(err => false ))
+    
   }
 
   public logout(): void {
     this.afAuth.signOut().then(()=>{
       this.router.navigate(['/login']);
-      this.alert.alerts.next(new Alert('You have been signed out'));
+      this.alert.alerts.next(new Alert('You have been signed out',AlertType.Success));
     })
     
   }

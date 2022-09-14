@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { map, Observable, take, tap } from 'rxjs';
 import { Alert } from '../classes/alert';
 import { AlertType } from '../enums/alert-type';
@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     return this.auth.currentUser.pipe(
       take(1),
       map((currentUser)=>!!currentUser),
-      tap(loggedIn => {
+      tap((loggedIn) => {
         if(!loggedIn){
           this.alertService.alerts.next(new Alert('You need to login to access this page.',AlertType.Danger));
           this.route.navigate(['/login'],{queryParams:{returnUrl: state.url }});
@@ -24,6 +24,8 @@ export class AuthGuard implements CanActivate {
       })
     );
   }
-  constructor(private route: Router, private alertService: AlertService, private auth: AuthService) { }
+  constructor(private route: Router,
+     private alertService: AlertService, 
+     private auth: AuthService) { }
 
 }
