@@ -27,6 +27,7 @@ import { environment } from 'src/environments/environment';
 import { ChatroomService } from './services/chatroom.service';
 import { LoadingService } from './services/loading.service';
 import { AuthService } from './services/auth.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { AuthService } from './services/auth.service';
     AngularFireStorageModule,
     AngularFirestoreModule
   ],
-  providers: [AlertService,AuthGuard,ChatroomService,LoadingService,AuthService],
+  providers: [AlertService,AuthGuard,ChatroomService,LoadingService,AuthService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

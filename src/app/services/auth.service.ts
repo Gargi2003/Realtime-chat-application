@@ -14,8 +14,12 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 })
 export class AuthService {
   public currentUser: Observable<User | null | undefined>;
-
-  constructor(private router: Router, private alert: AlertService, private afAuth: AngularFireAuth, private db: AngularFirestore) {
+  public currentUserSnapshot: User | null | undefined;
+  constructor(
+    private router: Router, 
+    private alert: AlertService, 
+    private afAuth: AngularFireAuth, 
+    private db: AngularFirestore) {
 
     this.currentUser = this.afAuth.authState.pipe(
       switchMap((user) => {
@@ -26,10 +30,13 @@ export class AuthService {
         }
       }));
 
-
+      this.setCurrentUserSnapshot();
     // this.currentUser= of(null);
   }
 
+  private setCurrentUserSnapshot():void {
+    this.currentUser.subscribe(user=> this.currentUserSnapshot = user);
+  }
   public signUp(firstName: string, lastName: string, email: string, password: string): Observable<boolean> {
 
     return fromPromise(this.afAuth.createUserWithEmailAndPassword(email, password).then(user => {

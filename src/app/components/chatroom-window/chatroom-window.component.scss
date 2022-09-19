@@ -1,3 +1,4 @@
+@import '../../../styles/variables.scss';
 .message-wrapper{
     overflow-y: scroll;
 }
@@ -6,3 +7,14 @@
     width: 50px;
     border-radius: 40px;
  }
+.select-room{
+    .select-room-message{
+        width: 30%;
+        height: 5%;
+        margin-bottom:10%;
+        border: 2px solid $gold;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+}
