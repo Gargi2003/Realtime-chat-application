@@ -28,6 +28,8 @@ import { ChatroomService } from './services/chatroom.service';
 import { LoadingService } from './services/loading.service';
 import { AuthService } from './services/auth.service';
 import { DatePipe } from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { DatePipe } from '@angular/common';
     ChatroomTitleBarComponent,
     ChatMessageComponent,
     ChatroomListComponent,
-    ChatInputComponent
+    ChatInputComponent,
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

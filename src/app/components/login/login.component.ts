@@ -33,7 +33,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   private returnUrl!: string;
 
   ngOnInit() {
-    return this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/chat';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/chat';
+    this.subscriptions.push(
+      this.auth.currentUser.subscribe(user=>{
+        if(!!user){
+          this.router.navigateByUrl('/chat');
+        }
+      })
+    );
   }
   private createForm(): void {
     this.loginForm = this.fb.group({

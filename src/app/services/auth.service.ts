@@ -46,7 +46,9 @@ export class AuthService {
         email: user.user?.email,
         firstName,
         lastName,
-        photoUrl: 'https://firebasestorage.googleapis.com/v0/b/chat-70193.appspot.com/o/default-profile-pic.jpg?alt=media&token=3db8703e-fbfc-4b24-aa91-4ad0c30734c9'
+        photoUrl: 'https://firebasestorage.googleapis.com/v0/b/chat-70193.appspot.com/o/default-profile-pic.jpg?alt=media&token=3db8703e-fbfc-4b24-aa91-4ad0c30734c9',
+        quote:'No quote',
+        bio:'Bio is under construction...'
       }
       userRef.set(updatedUser);
       return true;
