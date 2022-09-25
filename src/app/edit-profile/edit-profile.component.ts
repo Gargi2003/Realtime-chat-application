@@ -51,16 +51,20 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   }
 
   public uploadFile(event:any):void{
+    console.log("upload entered");
     const file = event.target.files[0];
-    const filePath= `${file.name}_${this.currentUser.id}`;
+    const filePath= `${file.name}`;
+    
     const task = this.fs.upload(filePath, file);
+    
     const ref= this.fs.ref(filePath);
-
+    
     //observe percentage changes
     this.subscriptions.push(
       task.percentageChanges().subscribe((percentage:any) => {
         if(percentage < 100){
           this.loadingService.isloading.next(true);
+          console.log(percentage,"percentage");
         }else{
           this.loadingService.isloading.next(false);
         }

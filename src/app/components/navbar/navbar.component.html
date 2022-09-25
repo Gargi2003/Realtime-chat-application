@@ -4,13 +4,13 @@
         <div class="page-links">
             <ul class="navbar-nav" *ngIf="currentUser else loggedout">
                 <li class="nav-item">
-                    <a [routerLink]="'/profile/' + currentUser.id" routerLinkActive="active" class="nav-link">Profile</a>
-                </li>
-                <li class="nav-item">
                     <a routerLink="/chat" routerLinkActive="active" class="nav-link">Chat Rooms</a>
                 </li>
                 <li class="nav-item">
                     <a (click)="auth.logout()" class="nav-link">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="'/profile/' + currentUser.id" routerLinkActive="active" class="nav-link"><img [src]="currentUser.photoUrl" alt="" id="profile-photo"></a>
                 </li>
             </ul>
         </div>
