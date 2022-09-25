@@ -1,27 +1,32 @@
 <app-navbar></app-navbar>
-<div class="container d-flex justify-content-center align-items-center">
-    <div class="form-wrapper text-center">
-        <div class="text-center">
-            <h2>Sign Up</h2>
-            <form [formGroup]="signupForm" novalidate (submit)="submit()" >
-                <div class="name-wrapper d-flex">
-                    <div class="form-group">
-                        <input type="text" id="firstName" class="form-control" placeholder="First Name" formControlName="firstName">
+<div class="loginBackground">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="form-wrapper text-center" id="formWrap">
+            <div class="text-center">
+                <h2>Sign Up</h2>
+                <form [formGroup]="signupForm" novalidate (submit)="submit()">
+                    <div class="name-wrapper d-flex">
+                        <div class="form-group">
+                            <input type="text" id="firstName" class="form-control" placeholder="First Name"
+                                formControlName="firstName">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lastName" class="form-control" placeholder="Last Name"
+                                formControlName="lastName">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="lastName" class="form-control" placeholder="Last Name" formControlName="lastName">
+                        <input type="email" class="form-control" placeholder="Enter email id" formControlName="email">
                     </div>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Enter email id" formControlName="email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
-                </div>
-                <br>
-                <button class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
-            </form>
-            <small><a routerLink="/login">Already have an account?</a></small>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Enter password"
+                            formControlName="password">
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>
+                </form>
+                <small><a routerLink="/login">Already have an account?</a></small>
+            </div>
         </div>
     </div>
 </div>

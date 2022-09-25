@@ -3,12 +3,17 @@
 .chartroom-list{
     border-right: 2px solid $light-grey;
     overflow-y: scroll;
-    
+    background-color: #4d0066;
 
     .chatroom-list-item{
-        border-bottom: 1px solid $light-grey;
+        // border-bottom: 1px solid $light-grey;
         padding: 1em;
     } 
+    .chatroom-list-item a{
+        text-decoration: none;
+        color: white;
+        font-weight: 200;
+    }
 }
 ::-webkit-scrollbar{ 
     scrollbar-width: thin;

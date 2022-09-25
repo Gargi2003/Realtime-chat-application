@@ -2,6 +2,7 @@
 
 .nav-item, span{
     color: #ffffff;
+    cursor: pointer;
 }
 
 a{
@@ -10,13 +11,23 @@ a{
 
     &.active {
         border-bottom: 3px solid $gold ;
+        background-color: #993399;
     }
 }
 .container{
     height: 100% !important;
+    a:hover{
+        background-color: #993399;
+        color: white;
+    }
 }
 #profile-photo{
 border-radius: 50%;
-height: 40px;
-width: 50px;
+height: 27px;
+width: 31px;
+}
+
+.navbar{
+    background-color: #39004d !important;
+    border-bottom: 2px solid $light-grey;
 }

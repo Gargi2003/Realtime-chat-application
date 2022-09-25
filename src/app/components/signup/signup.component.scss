@@ -3,22 +3,38 @@
 .container {
     height: 100vh;
 }
-h2{
-    margin-bottom:1em;
+
+h2 {
+    margin-bottom: 1em;
 }
-.form-wrapper{
+
+.form-wrapper {
     margin-bottom: 10%;
     min-width: 40%;
     padding: 1em 2em;
     border: 2px solid $light-grey;
 }
 
-.form-group{
+.form-group {
     margin-top: 1em;
 }
-#firstName{
+
+#firstName {
     margin-right: 0.5em;
 }
-#lastName{
+
+#lastName {
     margin-left: 0.3em;
+}
+
+.loginBackground {
+    background-image: url('../../../assets/images/login-background.jpg');
+
+}
+
+#formWrap {
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
+    box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
 }
