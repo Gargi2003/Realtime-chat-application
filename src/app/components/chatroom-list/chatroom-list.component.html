@@ -6,7 +6,11 @@
     </ng-container>
 </div> -->
 <input type="checkbox" id="openSidebarMenu">
-<label for="openSidebarMenu" class="sidebarIconToggle"></label>
+<label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner top"></div>
+    <div class="spinner middle"></div>
+    <div class="spinner bottom"></div>
+</label>
 <div id="sidebarMenu">
     <ng-container *ngFor="let chatroom of chatroomService.chatRooms | async">
         <div class="menu">
