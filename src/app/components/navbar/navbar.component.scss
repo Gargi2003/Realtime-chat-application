@@ -5,17 +5,25 @@
     cursor: pointer;
 }
 
+.navbar-nav{
+    background-color: #732673;
+}
 a{
     color: $light-grey;
-    margin-left: 3em;
-
+    
     &.active {
-        border-bottom: 3px solid $gold ;
         background-color: #993399;
     }
 }
-.container{
+.navbar-brand{
+    color: white;
+    margin-left: 3rem;
+}
+.container-fluid{
     height: 100% !important;
+    a{
+        color: white;
+    }
     a:hover{
         background-color: #993399;
         color: white;
@@ -23,11 +31,17 @@ a{
 }
 #profile-photo{
 border-radius: 50%;
-height: 27px;
+height: 23px;
 width: 31px;
 }
 
 .navbar{
     background-color: #39004d !important;
     border-bottom: 2px solid $light-grey;
+}
+#main-nav{
+    justify-content: end;
+}
+.nav-link{
+    color: white;
 }

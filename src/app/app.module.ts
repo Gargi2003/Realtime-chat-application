@@ -23,13 +23,15 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { config } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { ChatroomService } from './services/chatroom.service';
 import { LoadingService } from './services/loading.service';
 import { AuthService } from './services/auth.service';
 import { DatePipe } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgxNavbarModule,
+    BrowserAnimationsModule
   ],
   providers: [AlertService,AuthGuard,ChatroomService,LoadingService,AuthService,DatePipe],
   bootstrap: [AppComponent]

@@ -51,10 +51,11 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   }
 
   public uploadFile(event:any):void{
+
     console.log("upload entered");
     const file = event.target.files[0];
-    const filePath= `${file.name}`;
-    
+    const filePath= "/files"+Math.random()+file;
+    console.log(filePath)
     const task = this.fs.upload(filePath, file);
     
     const ref= this.fs.ref(filePath);
@@ -75,7 +76,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
     //get notified when download url is available
     this.subscriptions.push(
-      ref.getDownloadURL().subscribe(url => this.downloadUrl = url)
+      ref.getDownloadURL().subscribe(url => {this.downloadUrl = url})
     );
   }
 

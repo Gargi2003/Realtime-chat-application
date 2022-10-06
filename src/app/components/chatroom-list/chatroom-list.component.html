@@ -1,6 +1,15 @@
-<div class="h-100 d-flex flex-column chartroom-list">
+<!-- <div class="h-100 d-flex flex-column chartroom-list">
     <ng-container *ngFor="let chatroom of chatroomService.chatRooms | async">
         <div class="chatroom-list-item">
+           <a [routerLink]="['/chat', chatroom.id]">{{ chatroom.name }}</a>
+        </div>
+    </ng-container>
+</div> -->
+<input type="checkbox" id="openSidebarMenu">
+<label for="openSidebarMenu" class="sidebarIconToggle"></label>
+<div id="sidebarMenu">
+    <ng-container *ngFor="let chatroom of chatroomService.chatRooms | async">
+        <div class="menu">
            <a [routerLink]="['/chat', chatroom.id]">{{ chatroom.name }}</a>
         </div>
     </ng-container>

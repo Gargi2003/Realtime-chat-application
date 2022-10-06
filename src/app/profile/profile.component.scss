@@ -6,7 +6,7 @@
     background: $grey ;
     border-radius: 50% ;
     margin: 1em 0;
-    color: white;
+    // color: white;
 }
 .profile-pic{
     max-width: 150px;
@@ -16,11 +16,29 @@
 .name{
     font-size: 1.4em;
     font-weight: 200;
+    // color: white;
 }
 .quote{
     margin-bottom: 2em;
+    // color: white;
 }
 .bio{
     margin-bottom: 2em;
     font-weight: 200;
+    // color: white;
+}
+.cover{
+    width: 80%;
+    margin-top: 13%;
+    margin-left: 3.5em;
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
+    box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
+}
+.edit-button{
+    padding-bottom: 10px;
+    button{
+        width: 50%;
+    }
 }
