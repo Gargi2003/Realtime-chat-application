@@ -19,7 +19,9 @@ h2{
     margin-top: 1em;
     margin-bottom: 1em;
 }
-
+#loginBackground{
+    backdrop-filter: blur(5px);
+}
 #formWrap {
     background-color: white;
     -webkit-box-shadow: 10px 10px 112px 12px rgba(0, 0, 0, 1);
