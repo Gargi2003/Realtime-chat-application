@@ -5,7 +5,7 @@
     <div class="bubble d-flex flex-column">
         <div class="d-flex align-items-baseline">
             <span class="name">{{message.sender.firstName}}</span>
-            <span><small class="timestamp">{{message.createdAt}}</small></span>
+            <span><small class="timestamp">{{message.createdAt | date}}</small></span>
         </div>
         <div class="message">
             {{message.message}}
